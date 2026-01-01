@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scrolling Text Background</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <!-- <img src="image/loading.png" alt="Loading" class="loading-image"> -->  
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+
+  <!-- Main Content (hidden initially) -->
+  <div id="main-content" class="main-content">
+  <!-- Noise overlay canvas -->
+  <canvas class="noise-overlay" id="noise-canvas"></canvas>
+
+  <!-- SECTION 1 : hero (2 titres + PNG en fond) -->
+  <section class="hero">
+    <h1>Hi besties!!
+      Real talk…</h1>
+    <h2>I think Micro-trends might be ruining everything...</h2>
+    
+  </section>
+  <img src="image/labubuBorder.png" alt="Labubu border" class="labubu-border">
+  
+  <!-- SECTION 2 : texte animé en fond -->
+  <section class="moving-text-section">
+  
+    <!-- 3 lignes rouges -->
+    <div class="marquee marquee-red">
+      <div class="marquee__inner">
+        <span>Two weeks famous </span>
+        <span>Two weeks famous </span>
+      </div>
+      <div class="marquee__inner">
+        <span>Forever trash </span>
+        <span>Forever trash </span>
+      </div>
+      <div class="marquee__inner">
+        <span>Two weeks famous </span>
+        <span>Two weeks famous </span>
+      </div>
+    </div>
+  
+    <!-- 3 lignes jaunes -->
+    <div class="marquee marquee-yellow">
+      <div class="marquee__inner">
+        <span>Two weeks famous </span>
+        <span>Two weeks famous </span>
+      </div>
+      <div class="marquee__inner">
+        <span>Forever trash </span>
+        <span>Forever trash </span>
+      </div>
+      <div class="marquee__inner">
+        <span>Two weeks famous </span>
+        <span>Two weeks famous </span>
+      </div>
+    </div>
+  
+    <!-- 3 lignes vertes -->
+    <div class="marquee marquee-green">
+      <div class="marquee__inner">
+        <span>Two weeks famous </span>
+        <span>Two weeks famous </span>
+      </div>
+      <div class="marquee__inner">
+        <span>Forever trash </span>
+        <span>Forever trash </span>
+      </div>
+      <div class="marquee__inner">
+        <span>Two weeks famous </span>
+        <span>Two weeks famous </span>
+      </div>
+    </div>
+  
+    <!-- 3 GIFs positioned in front -->
+    <div class="gifs-container">
+      <img src="giff/giff1.gif" alt="GIF 1" class="gif-front gif-1">
+      <img src="giff/giff2.gif" alt="GIF 2" class="gif-front gif-2">
+      <img src="giff/giff3.gif" alt="GIF 3" class="gif-front gif-3">
+    </div>
+  
+  </section>
+  
+
+
+
+  <!-- SECTION 3 : texte simple avec marges -->
+  <section class="text-block">
+    <h3>Yes, 
+      even your mental Health</h3>
+    <p>
+      Lately I’ve been thinking about micro-trends.You know, the aesthetics that flood your TikTok 
+for two weeks, then disappear like they never existed. One day it’s a hairstyle, a dessert, a whole “lifestyle.” Next day? Gone into the void. New obsession unlocked. It looks cute and harmless. But the more you look at it, the messier it gets,for the planet, and for us.
+    </p>
+     
+  </section>
+
+  <img src="image/dubaiBorder.png" alt="Dubai border" class="dubai-border">
+
+     <!-- SECTION 4: texte animé en fond -->
+     <div class="moving-text-section_2">
+      <div class="marquee marquee-red">
+        <div class="marquee__inner">
+          <span>Fast trend</span>
+          <span>Fast trend</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast pollution</span>
+          <span>Fast pollution</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast trend</span>
+          <span>Fast trend</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast pollution</span>
+          <span>Fast pollution</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast trend</span>
+          <span>Fast trend</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast pollution</span>
+          <span>Fast pollution</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast trend</span>
+          <span>Fast trend</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast pollution</span>
+          <span>Fast pollution</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast trend</span>
+          <span>Fast trend</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast pollution</span>
+          <span>Fast pollution</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast trend</span>
+          <span>Fast trend</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast pollution</span>
+          <span>Fast pollution</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast trend</span>
+          <span>Fast trend</span>
+        </div>
+        <div class="marquee__inner">
+          <span>Fast pollution</span>
+          <span>Fast pollution</span>
+        </div>
+        
+      </div>
+      
+      
+    <!-- Foreground images -->
+    <div class="section-4-images">
+      <img
+        src="image/laurine2.png"
+        alt="Laurine 2"
+        class="laurine-2-image"
+      >
+
+      <div class="stars-column">
+        <img src="giff/giff_star.gif" class="star-gif">
+        <img src="giff/giff_star.gif" class="star-gif">
+        <img src="giff/giff_star.gif" class="star-gif">
+        <img src="giff/giff_star.gif" class="star-gif">
+        <img src="giff/giff_star.gif" class="star-gif">
+        <img src="giff/giff_star.gif" class="star-gif">
+        <img src="giff/giff_star.gif" class="star-gif">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Border after section 4 -->
+  <img
+    src="image/labubuBorder2.png"
+    alt="Labubu border 2"
+    class="labubu-border-2"
+  />
+
+  <section class="text-block_2">
+    <h4>Cute food, real damage</h4>
+    <p1>
+      The part nobody wants to talk about: Micro-trends are environmental chaos. When trends last 15 minutes, brands pump out cheap stuff that falls apart before you even wear it.
+And it’s not just fashion. Food trends are doing damage too. That viral Dubai pistachio chocolate? Pistachios are super water-intensive and mostly grown in drought-stricken California. So yeah — a “cute” TikTok dessert can literally drain ecosystems.
+    </p1>
+  </section>
+  <img
+  src="image/labubuBorder3.png"
+  alt="Labubu border 3"
+  class="labubu-border-3"
+/>
+  <section class="text-block_3">
+    <h5>Yes
+      it's Political</h5>
+    <p2>
+      The part nobody wants to talk about: Micro-trends are environmental chaos. When trends last 15 minutes, brands pump out cheap stuff that falls apart before you even wear it.
+And it's not just fashion. Food trends are doing damage too. That viral Dubai pistachio chocolate? Pistachios are super water-intensive and mostly grown in drought-stricken California. So yeah, a "cute" TikTok dessert can literally drain ecosystems.
+    </p2>
+  </section>
+
+     <!-- SECTION 6: texte animé en fond -->
+     <div class="moving-text-section_6">
+
+      <!-- WRAPPER INTERNE -->
+      <div class="moving-text-inner">
+    
+          <div class="marquee marquee-red">
+            <div class="marquee__inner">
+              <span>Soft lighting</span>
+              <span>Soft lighting</span>
+            </div>
+          <div class="marquee__inner">
+            <span>Hard ideology</span>
+            <span>Hard ideology</span>
+          </div>
+          <div class="marquee__inner">
+            <span>Soft lighting</span>
+            <span>Soft lighting</span>
+          </div>
+          <div class="marquee__inner">
+            <span>Hard ideology</span>
+            <span>Hard ideology</span>
+          </div>
+          <div class="marquee__inner">
+            <span>Soft lighting</span>
+            <span>Soft lighting</span>
+          </div>
+          <div class="marquee__inner">
+            <span>Hard ideology</span>
+            <span>Hard ideology</span>
+          </div>
+          <div class="marquee__inner">
+            <span>Soft lighting</span>
+            <span>Soft lighting</span>
+          </div>
+          <div class="marquee__inner">
+            <span>Hard ideology</span>
+            <span>Hard ideology</span>
+          </div>
+          <div class="marquee__inner">
+            <span>Soft lighting</span>
+            <span>Soft lighting</span>
+          </div>
+          <div class="marquee__inner">
+            <span>Hard ideology</span>
+            <span>Hard ideology</span>
+          </div>
+        
+        
+      </div>
+
+      <!-- Foreground images -->
+      <div class="section-6-images">
+        <img
+          src="image/laurine3.png"
+          alt="Laurine 3"
+          class="laurine-3-image"
+        >
+      </div>
+  
+    </div>
+  </div>
+  <section class="text-block_4">
+    <h6>Buy More, Be More?</h6>
+    <p3>
+      Micro-trends are peak overconsumption.
+      Nothing lasts, not clothes, not aesthetics, not even who we are online.
+      It’s all speed, novelty, and the lie that buying more = finding yourself.
+      
+      But the more we chase trends, the more disconnected we get
+      from the planet, our values, and ourselves.
+      
+      Micro-trends sell individuality,
+      but produce the same content on repeat.
+      They sell inspiration,
+      but deliver insecurity, pollution, anxiety
+      and sometimes straight-up ideology.
+    </p3>
+  </section>
+  <section class="text-block_5">
+    <h7>Time to break 
+      the cycle</h7>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

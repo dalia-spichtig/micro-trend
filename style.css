@@ -1,0 +1,770 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    background: #ffd7ef;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* Loading Screen Styles */
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffdede;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+  }
+  
+
+  .loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(0, 0, 0, 0.179);
+    border-top-color: #ffea00;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  .loading-image {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  
+
+  /* Main Content */
+  .main-content {
+    width: 100%;
+    min-height: 100vh;
+    display: none; /* Hidden by default, shown after loading */
+  }
+
+  .main-content.loaded {
+    display: block;
+  }
+
+  /* Noise overlay */
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 1;
+    mix-blend-mode: overlay;
+  }
+  
+  
+  /* --- Foreground content --- */
+  .content {
+    position: relative;
+    width: 390px;
+    margin: 0 auto;
+    padding: 16px;
+    z-index: 2;
+  }
+
+  /* Ensure sections are above noise */
+  section {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* --- Hero section --- */
+  .hero {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    height: 95vh;
+    background-image: url('image/laurine1.png'), url('giff/fond.gif');
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    padding-bottom: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    border: 15px solid #ff6969;
+    filter: blur(15px); /* flou appliqué */
+    z-index: -1;       /* derrière le contenu */
+    border-radius: 0;  /* ou arrondi si tu veux */
+  }
+
+  .hero h1 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    color: #FEF806;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .hero h2 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    color: #FEF806;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 0 0 4rem 0; /* top | right | bottom | left */
+    
+    padding: 0;
+    line-height: 1;
+  }
+
+  
+  .labubu-border {
+    position: relative; /* reste dans le flux pour ne pas être coupé */
+    display: block;
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    object-fit: cover;
+    margin-top: -70px; /* chevauche la section 1 */
+    z-index: 10; /* juste au-dessus si nécessaire */
+    will-change: transform; /* Optimize for animations */
+    transition: transform 0.1s ease-out; /* Smooth parallax movement */
+  }
+  .dubai-border {
+    position: relative; /* reste dans le flux pour ne pas être coupé */
+    display: block;
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    object-fit: cover;
+    margin-top: -130px; /* chevauche la section 1 */
+    z-index: 10; /* juste au-dessus si nécessaire */
+    will-change: transform; /* Optimize for animations */
+    transition: transform 0.1s ease-out; /* Smooth parallax movement */
+  }
+
+  .labubu-border-2 {
+    position: relative; /* reste dans le flux pour ne pas être coupé */
+    display: block;
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    object-fit: cover;
+    margin-top: -350px; /* chevauche la section 1 */
+    z-index: 10; /* juste au-dessus si nécessaire */
+    will-change: transform; /* Optimize for animations */
+    transition: transform 0.01s ease-out; /* Smooth parallax movement */
+  }
+  .labubu-border-3 {
+    position: relative; /* reste dans le flux pour ne pas être coupé */
+    display: block;
+    width: 120%;
+    max-width: 120%;
+    left: -10%;
+    object-fit: cover;
+    margin-top: -45px; /* chevauche la section 1 */
+    margin-bottom: -60px; 
+    z-index: 10; /* juste au-dessus si nécessaire */
+    will-change: transform; /* Optimize for animations */
+    transition: transform 0.1s ease-out; /* Smooth parallax movement */
+    rotate: -10deg;
+  }
+
+  /* --- Section 2 : text-block --- */
+
+
+
+
+/* --- Section texte animé --- */
+.moving-text-section {
+  position: relative;
+  overflow: hidden;           /* cache ce qui dépasse horizontalement */
+  padding: 1rem 0;            /* espace vertical autour des lignes */
+  display: flex;
+  flex-direction: column;     /* empile les lignes verticalement */
+  gap: 0rem;                  /* pas d'espace entre les groupes */
+  z-index: 1;                 /* background layer */
+  min-height: 100vh;          /* ensure enough space for GIFs */
+  margin-bottom: 2rem;        /* espace en bas pour séparer la section suivante */
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Section 2 : moving text (same logic as moving-text-section) */
+.moving-text-section_2 {
+  position: relative;
+  overflow: hidden;           /* cache ce qui dépasse horizontalement */
+  padding: 1rem 0;            /* espace vertical autour des lignes */
+  display: flex;
+  flex-direction: column;     /* empile les lignes verticalement */
+  gap: 0rem;                  /* pas d'espace entre les groupes */
+  z-index: 1;                 /* background layer */
+  margin-top: -5rem;           /* espace en haut pour séparer du contenu précédent */
+  margin-bottom: 2rem; 
+  min-height: 100vh;          /* ensure enough space for images */
+  width: 100%;
+  max-width: 100vw;
+  
+         /* espace en bas pour séparer la section suivante */
+}
+
+/* Section 6 : moving text (same logic as moving-text-section_2) */
+.moving-text-section_6 {
+  position: relative;          /* cache ce qui dépasse horizontalement */
+  padding: 1rem 0;            /* espace vertical autour des lignes */
+  overflow: visible; /* important pour que le stroke flou ne soit jamais coupé */
+  
+  display: flex;
+  flex-direction: column;     /* empile les lignes verticalement */
+  gap: 0rem;                  /* pas d'espace entre les groupes */
+  z-index: 3;      
+  /* background layer */
+  margin-top: 4rem;           /* espace en haut pour séparer du contenu précédent */
+  margin-bottom: 2rem; 
+  min-height: 100vh;          /* ensure enough space for images */
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  
+         /* espace en bas pour séparer la section suivante */
+}
+.moving-text-section_6::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('giff/fond.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
+  z-index: -3;
+  pointer-events: none;
+}
+.moving-text-section_6::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 0px;
+  right: 0px;
+  bottom: -4px;
+  border: 15px solid #ff6969;
+  filter: blur(15px);
+  z-index: -2;
+  border-radius: 0;
+}
+.moving-text-inner {
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* ICI seulement */
+}
+
+
+/* Container for images in section 4 */
+.section-4-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Container for images in section 6 */
+.section-6-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+
+.laurine-2-image {
+  position: absolute;
+  right: -20%;
+  top: 0%;
+
+  width: auto;
+  max-width: 150vw;
+  height: auto;
+  object-fit: contain;
+  transform: translateX(30%);
+}
+
+.stars-column {
+  position: absolute;
+  left: 15%;
+  top: 2%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* ⬅️ ESPACEMENT ENTRE LES GIFS */
+
+  pointer-events: none;
+}
+
+.star-gif {
+  width: 100px; /* Fixed pixel width to prevent size changes on reload */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+
+/* Chaque groupe de lignes */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+}
+
+/* Ligne horizontale, texte répété pour animation fluide */
+.marquee__inner {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+/* Chaque span doit être dupliqué pour seamless scroll */
+.marquee__inner span {
+  font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 80px;
+  font-weight: bold;
+  white-space: nowrap;
+  padding-right: 2rem;       /* espace entre répétitions */
+  -webkit-text-stroke: 1px #000000;
+  display: inline-block;
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* Couleurs différentes */
+.marquee-red span { color: red; }
+.marquee-yellow span { color: #09ff00; }
+.marquee-green span { color: #FEF806; }
+
+/* Couleur spécifique pour section 6 */
+.moving-text-section_6 .marquee span { color: #FEF806; } /* Changez cette couleur pour section 6 */
+
+/* Directions différentes */
+.marquee-yellow .marquee__inner { animation: scroll-right 25s linear infinite; }
+.marquee-green .marquee__inner { animation: scroll-left 15s linear infinite; }
+
+/* Animations basées sur la largeur totale du contenu */
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* la moitié du contenu = seamless loop */
+}
+
+@keyframes scroll-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* --- GIFs container in front --- */
+.gifs-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;               /* devant le texte */
+  pointer-events: none;      /* laisse les clics passer */
+}
+
+.gif-front {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 33vh;
+  object-fit: contain;
+  display: block;
+  will-change: transform; /* Optimize for animations */
+  transition: transform 0.1s ease-out; /* Smooth parallax movement */
+}
+
+.gif-1 { align-self: flex-start; margin-top: 4vh; }
+.gif-2 { align-self: center; }
+.gif-3 { align-self: flex-end; margin-bottom: 10vh; }
+
+
+/* --- GIFs container in front --- */
+.gifs-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;                /* foreground layer */
+  pointer-events: none; 
+  margin-bottom: 2rem; /* espace en bas pour séparer la section suivante */
+
+        /* allow clicks to pass through */
+}
+
+.gif-front {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 33vh;
+  object-fit: contain;
+  display: block;
+  will-change: transform; /* Optimize for animations */
+  transition: transform 0.1s ease-out; /* Smooth parallax movement */
+  margin-bottom: -2rem; /* espace en bas pour séparer la section suivante */
+
+}
+
+.gif-1 {
+  align-self: flex-start;
+  margin-top: 4vh;
+}
+
+.gif-2 {
+  align-self: center;
+}
+
+.gif-3 {
+  align-self: flex-end;
+  margin-bottom: 4rem;
+}
+
+
+
+  
+  /* --- Section 3 : text-block --- */
+  .text-block {
+    position: relative;
+    margin: 0rem 0;
+    padding: 2rem;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    z-index: 0; /* base */
+  }
+  
+  /* Pseudo-élément pour le stroke flou */
+  .text-block::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    border: 15px solid #ff6969;
+    filter: blur(15px); /* flou appliqué */
+    z-index: -1;       /* derrière le contenu */
+    border-radius: 0;  /* ou arrondi si tu veux */
+  }
+  
+  
+  h3 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    color: #09ff00;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 2rem 0rem 0 0rem;
+    padding: 0;
+    line-height: 1;
+    
+  }
+  
+  p {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #09ff00;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 1rem 0rem 2rem 0rem;
+    padding: 0;
+    line-height: 1.5;
+    
+  }
+  
+  .text-block_2 {
+    position: relative;
+    margin: 0rem 0;
+    padding: 2rem;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    z-index: 0; /* base */
+  }
+  
+  /* Pseudo-élément pour le background GIF avec bordures floues */
+  .text-block_2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('giff/fond.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    mask-image: radial-gradient(ellipse at center, black 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
+    z-index: -2;
+    pointer-events: none;
+  }
+  
+  /* Pseudo-élément pour le stroke flou */
+  .text-block_2::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    border: 15px solid #ff6969;
+    filter: blur(15px); /* flou appliqué */
+    z-index: -1;       /* derrière le contenu */
+    border-radius: 0;  /* ou arrondi si tu veux */
+  }
+  
+  
+  h4 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    color: #FEF806;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 0rem 0rem 1rem 0rem;
+    padding: 0;
+    line-height: 1;
+    
+  }
+  
+  p1 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FEF806;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 1rem 0rem 2rem 0rem;
+    padding: 0;
+    line-height: 1.5;
+    
+  }
+
+  .text-block_3 {
+    position: relative;
+    margin: 0rem 0;
+    padding: 2rem;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    z-index: 0; /* base */
+  }
+  
+  h5 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    color: #fe0606;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 2rem 0rem 1rem 0rem;
+    padding: 0;
+    line-height: 1;
+    
+  }
+  
+  p2 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fe0606;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 1rem 0rem 2rem 0rem;
+    padding: 0;
+    line-height: 1.5;
+    
+  }
+
+
+  .laurine-3-image {
+    position: absolute;
+    right: 35%;
+    top: 5%;
+
+    width: auto;
+    max-width: 200vw;
+    height: auto;
+    object-fit: contain;
+    transform: translateX(30%);
+    z-index: 42;
+  }
+
+
+
+  .text-block_4 {
+    position: relative;
+    margin: 0rem 0rem 2rem 0rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    z-index: 0; /* base */
+  }
+  
+  h6 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    color: #00ff00;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 2rem 0rem 1rem 0rem;
+    padding: 0;
+    line-height: 1;
+    
+  } 
+  p3 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #00ff00;
+    -webkit-text-stroke: 1px #000000;
+    text-align: left;
+    margin: 1rem 0rem 2rem 0rem;
+    padding: 0;
+    line-height: 1.5;
+    
+  }
+
+  .text-block_5 {
+    position: relative;
+    margin: 0;
+    padding: 2rem 2rem 0 2rem;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    z-index: 0;
+    
+    /* Ajout pour centrer tout le contenu */
+    display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center;     /* centre verticalement si nécessaire */
+    flex-direction: column;  /* empile verticalement les enfants */
+    text-align: center;      /* sécurité pour le texte inline */
+    
+  }
+  .text-block_5::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('giff/fond.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
+    z-index: -2;
+    pointer-events: none;
+  }
+  .text-block_5::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    border: 15px solid #ff6969;
+    filter: blur(15px); /* flou appliqué */
+    z-index: -1;       /* derrière le contenu */
+    border-radius: 0;  /* ou arrondi si tu veux */
+    
+  }
+  
+  h7 {
+    font-family: "Helvetica Neue", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 70px;
+    font-weight: bold;
+    color: #ffff00;
+    -webkit-text-stroke: 1px #000000;
+    text-align: center;
+    margin: 0;
+    padding: 0 0 2rem 0;
+    line-height: 1;
+    
+  }
