@@ -149,7 +149,8 @@
     color: #FEF806;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #FEF806;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 0;
     padding: 0;
@@ -163,7 +164,8 @@
     color: #FEF806;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #FEF806;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 0 0 4rem 0; /* top | right | bottom | left */
     
@@ -399,7 +401,8 @@
   padding-right: 2rem;       /* espace entre répétitions */
   -webkit-text-stroke: 1px #000000;
   text-stroke: 1px #000000;
-  text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+  -webkit-text-fill-color: inherit;
+  text-shadow: 0 0 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
   display: inline-block;
   line-height: 1.05;
   margin: 0;
@@ -558,7 +561,8 @@
     color: #09ff00;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #09ff00;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 2rem 0rem 0 0rem;
     padding: 0;
@@ -573,7 +577,8 @@
     color: #09ff00;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #09ff00;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 1rem 0rem 2rem 0rem;
     padding: 0;
@@ -631,7 +636,8 @@
     color: #FEF806;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #FEF806;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 0rem 0rem 1rem 0rem;
     padding: 0;
@@ -646,7 +652,8 @@
     color: #FEF806;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #FEF806;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 1rem 0rem 2rem 0rem;
     padding: 0;
@@ -671,7 +678,8 @@
     color: #fe0606;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #fe0606;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 2rem 0rem 1rem 0rem;
     padding: 0;
@@ -686,7 +694,8 @@
     color: #fe0606;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #fe0606;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 1rem 0rem 2rem 0rem;
     padding: 0;
@@ -727,7 +736,8 @@
     color: #00ff00;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #00ff00;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 2rem 0rem 1rem 0rem;
     padding: 0;
@@ -741,7 +751,8 @@
     color: #00ff00;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #00ff00;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 1rem 0rem 2rem 0rem;
     padding: 0;
@@ -803,7 +814,8 @@
     color: #ffff00;
     -webkit-text-stroke: 1px #000000;
     text-stroke: 1px #000000;
-    text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000, 0 -1px 0 #000000, 0 1px 0 #000000, -1px 0 0 #000000, 1px 0 0 #000000;
+    -webkit-text-fill-color: #ffff00;
+    text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: center;
     margin: 0;
     padding: 0 0 2rem 0;
