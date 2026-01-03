@@ -148,7 +148,6 @@
     font-weight: bold;
     color: #FEF806;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #FEF806;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -163,7 +162,6 @@
     font-weight: bold;
     color: #FEF806;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #FEF806;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -400,7 +398,6 @@
   white-space: nowrap;
   padding-right: 2rem;       /* espace entre répétitions */
   -webkit-text-stroke: 1px #000000;
-  text-stroke: 1px #000000;
   -webkit-text-fill-color: inherit;
   text-shadow: 0 0 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000, 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000;
   display: inline-block;
@@ -560,7 +557,6 @@
     font-weight: bold;
     color: #09ff00;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #09ff00;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -576,7 +572,6 @@
     font-weight: bold;
     color: #09ff00;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #09ff00;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -635,7 +630,6 @@
     font-weight: bold;
     color: #FEF806;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #FEF806;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -651,7 +645,6 @@
     font-weight: bold;
     color: #FEF806;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #FEF806;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -677,7 +670,6 @@
     font-weight: bold;
     color: #fe0606;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #fe0606;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -693,7 +685,6 @@
     font-weight: bold;
     color: #fe0606;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #fe0606;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -735,7 +726,6 @@
     font-weight: bold;
     color: #00ff00;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #00ff00;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -750,7 +740,6 @@
     font-weight: bold;
     color: #00ff00;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #00ff00;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
@@ -813,7 +802,6 @@
     font-weight: bold;
     color: #ffff00;
     -webkit-text-stroke: 1px #000000;
-    text-stroke: 1px #000000;
     -webkit-text-fill-color: #ffff00;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: center;
