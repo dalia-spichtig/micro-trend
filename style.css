@@ -182,6 +182,8 @@
     margin-top: -70px; /* chevauche la section 1 */
     z-index: 10; /* juste au-dessus si nécessaire */
     will-change: transform; /* Optimize for animations */
+    transform: translateZ(0); /* Force GPU acceleration */
+    backface-visibility: hidden; /* Prevent flickering */
     transition: transform 0.1s ease-out; /* Smooth parallax movement */
   }
   .dubai-border {
@@ -194,6 +196,8 @@
     margin-top: -130px; /* chevauche la section 1 */
     z-index: 10; /* juste au-dessus si nécessaire */
     will-change: transform; /* Optimize for animations */
+    transform: translateZ(0); /* Force GPU acceleration */
+    backface-visibility: hidden; /* Prevent flickering */
     transition: transform 0.1s ease-out; /* Smooth parallax movement */
   }
 
@@ -207,7 +211,9 @@
     margin-top: -350px; /* chevauche la section 1 */
     z-index: 10; /* juste au-dessus si nécessaire */
     will-change: transform; /* Optimize for animations */
-    transition: transform 0.01s ease-out; /* Smooth parallax movement */
+    transform: translateZ(0); /* Force GPU acceleration */
+    backface-visibility: hidden; /* Prevent flickering */
+    transition: transform 0.1s ease-out; /* Smooth parallax movement */
   }
   .labubu-border-3 {
     position: relative; /* reste dans le flux pour ne pas être coupé */
@@ -220,8 +226,9 @@
     margin-bottom: -60px; 
     z-index: 10; /* juste au-dessus si nécessaire */
     will-change: transform; /* Optimize for animations */
+    transform: translateZ(0) rotate(-10deg); /* Force GPU acceleration */
+    backface-visibility: hidden; /* Prevent flickering */
     transition: transform 0.1s ease-out; /* Smooth parallax movement */
-    rotate: -10deg;
   }
 
   /* --- Section 2 : text-block --- */
@@ -388,6 +395,9 @@
   display: flex;
   width: max-content;
   animation: scroll-left 20s linear infinite;
+  will-change: transform; /* GPU acceleration */
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden; /* Prevent flickering */
 }
 
 /* Chaque span doit être dupliqué pour seamless scroll */
@@ -419,13 +429,13 @@
 
 /* Animations basées sur la largeur totale du contenu */
 @keyframes scroll-left {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* la moitié du contenu = seamless loop */
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); } /* la moitié du contenu = seamless loop */
 }
 
 @keyframes scroll-right {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  0%   { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
 }
 
 /* --- GIFs container in front --- */
@@ -485,6 +495,8 @@
   object-fit: contain;
   display: block;
   will-change: transform; /* Optimize for animations */
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden; /* Prevent flickering */
   transition: transform 0.1s ease-out; /* Smooth parallax movement */
   margin-bottom: -2rem; /* espace en bas pour séparer la section suivante */
 
