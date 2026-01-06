@@ -583,13 +583,14 @@
     font-size: 20px;
     font-weight: bold;
     color: #09ff00;
-    -webkit-text-stroke: 1px #000000;
+    -webkit-text-stroke: 0.5px #000000;
     -webkit-text-fill-color: #09ff00;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 1rem 0rem 2rem 0rem;
     padding: 0;
     line-height: 1.5;
+    letter-spacing: 0.5px;
     
   }
   
@@ -615,7 +616,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    mask-image: radial-gradient(ellipse at center, black 60%, transparent 100%);
+    mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
     z-index: -2;
     pointer-events: none;
@@ -628,7 +629,7 @@
     top: -4px;
     left: 0;
     right: 0;
-    bottom: -4px;
+    bottom: -40px;
     border: 15px solid #ff6969;
     filter: blur(15px); /* flou appliqué */
     z-index: -1;       /* derrière le contenu */
@@ -645,7 +646,7 @@
     -webkit-text-fill-color: #FEF806;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
-    margin: 0rem 0rem 1rem 0rem;
+    margin: 2rem 0rem 1rem 0rem;
     padding: 0;
     line-height: 1;
     
@@ -656,13 +657,14 @@
     font-size: 20px;
     font-weight: bold;
     color: #FEF806;
-    -webkit-text-stroke: 1px #000000;
+    -webkit-text-stroke: 0.5px #000000;
     -webkit-text-fill-color: #FEF806;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
-    margin: 1rem 0rem 2rem 0rem;
+    margin: 1rem 0rem 3rem 0rem;
     padding: 0;
     line-height: 1.5;
+    letter-spacing: 0.5px;
     
   }
 
@@ -682,7 +684,7 @@
     font-weight: bold;
     color: #fe0606;
     -webkit-text-stroke: 1px #000000;
-    -webkit-text-fill-color: #fe0606;
+    -webkit-text-fill-color: #09ff00;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 2rem 0rem 1rem 0rem;
@@ -696,13 +698,14 @@
     font-size: 20px;
     font-weight: bold;
     color: #fe0606;
-    -webkit-text-stroke: 1px #000000;
-    -webkit-text-fill-color: #fe0606;
+    -webkit-text-stroke: 0.5px #000000;
+    -webkit-text-fill-color: #09ff00;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 1rem 0rem 2rem 0rem;
     padding: 0;
     line-height: 1.5;
+    letter-spacing: 0.5px; /* Espacement léger entre les lettres */
     
   }
 
@@ -738,12 +741,13 @@
     font-weight: bold;
     color: #00ff00;
     -webkit-text-stroke: 1px #000000;
-    -webkit-text-fill-color: #00ff00;
+    -webkit-text-fill-color: #FEF806;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
-    margin: 2rem 0rem 1rem 0rem;
+    margin: 1rem 0rem 1rem 0rem;
     padding: 0;
     line-height: 1;
+  
     
   } 
   p3 {
@@ -751,13 +755,14 @@
     font-size: 20px;
     font-weight: bold;
     color: #00ff00;
-    -webkit-text-stroke: 1px #000000;
-    -webkit-text-fill-color: #00ff00;
+    -webkit-text-stroke: 0.5px #000000;
+    -webkit-text-fill-color: #FEF806;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: left;
     margin: 1rem 0rem 2rem 0rem;
     padding: 0;
     line-height: 1.5;
+    letter-spacing: 0.5px;
     
   }
 
@@ -790,14 +795,14 @@
     background-position: center;
     background-repeat: no-repeat;
     mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 10%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, rgb(0, 0, 0) 10%, transparent 100%);
     z-index: -2;
     pointer-events: none;
   }
   .text-block_5::before {
     content: "";
     position: absolute;
-    top: -4px;
+    top: -0px;
     left: 0;
     right: 0;
     bottom: 4px;
@@ -814,7 +819,7 @@
     font-weight: bold;
     color: #ffff00;
     -webkit-text-stroke: 1px #000000;
-    -webkit-text-fill-color: #ffff00;
+    -webkit-text-fill-color: #fe0606;
     text-shadow: 1px 1px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 0 0 #000000, -1px 0 0 #000000, 0 1px 0 #000000, 0 -1px 0 #000000;
     text-align: center;
     margin: 0;

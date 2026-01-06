@@ -189,7 +189,7 @@ function initAllParallax() {
   };
 
   // Skip if no elements found
-  if (!elements.labubuBorder && !elements.dubaiBorder && elements.gifs.length === 0 && 
+  if (!elements.labubuBorder && !elements.dubaiBorder && 
       !elements.labubuBorder2 && !elements.labubuBorder3) return;
 
   let ticking = false;
@@ -229,24 +229,8 @@ function initAllParallax() {
       }
     }
 
-    // GIFs parallax
-    if (elements.gifs.length > 0 && elements.movingTextSection) {
-      const sectionHeight = elements.movingTextSection.offsetHeight;
-      const sectionTop = elements.movingTextSection.getBoundingClientRect().top + scrollY;
-      const gifsTop = sectionTop;
-      
-      if (viewportBottom >= gifsTop) {
-        const scrollProgress = Math.min(Math.max((scrollY - sectionTop) / sectionHeight, 0), 1);
-        const translateY = scrollProgress * 60;
-        elements.gifs.forEach(gif => {
-          gif.style.transform = `translateY(${translateY}px)`;
-        });
-      } else {
-        elements.gifs.forEach(gif => {
-          gif.style.transform = 'translateY(0px)';
-        });
-      }
-    }
+    // GIFs parallax - REMOVED (no parallax effect on GIFs)
+    // GIFs will remain static without parallax movement
 
     // Labubu border 2 parallax
     if (elements.labubuBorder2 && elements.textBlock2Section) {
