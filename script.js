@@ -81,11 +81,19 @@
         }
       });
 
-      // Preload all images and GIFs
-      await Promise.all(assets.map(asset => preloadAsset(asset)));
-
-      // Small delay to ensure everything is rendered
-      await new Promise(resolve => setTimeout(resolve, 300));
+      // Preload critical images only (non-blocking)
+      // Load hero background first, then others in parallel
+      const criticalAssets = ['image/laurine1.png', 'giff/fond.gif'];
+      const otherAssets = assets.filter(a => !criticalAssets.includes(a));
+      
+      // Load critical assets first
+      await Promise.all(criticalAssets.map(asset => preloadAsset(asset)));
+      
+      // Load other assets in background (non-blocking)
+      Promise.all(otherAssets.map(asset => preloadAsset(asset))).catch(() => {});
+      
+      // Minimal delay - let browser handle rendering
+      await new Promise(resolve => setTimeout(resolve, 100));
 
       // Hide loading screen and show main content
       if (loadingScreen) {
@@ -173,121 +181,167 @@ if (document.readyState === "loading") {
   generateNoise();
 }
 
-// Combined parallax handler for optimal performance
+// Optimized parallax handler - 100% transform-based, no layout recalculations
 function initAllParallax() {
-  // Cache all elements and references
   const elements = {
     labubuBorder: document.querySelector('.labubu-border'),
     dubaiBorder: document.querySelector('.dubai-border'),
-    gifs: document.querySelectorAll('.gif-front'),
     labubuBorder2: document.querySelector('.labubu-border-2'),
-    labubuBorder3: document.querySelector('.labubu-border-3'),
-    heroSection: document.querySelector('.hero'),
-    textBlockSection: document.querySelector('.text-block'),
-    movingTextSection: document.querySelector('.moving-text-section'),
-    textBlock2Section: document.querySelector('.text-block_2')
+    labubuBorder3: document.querySelector('.labubu-border-3')
   };
 
-  // Skip if no elements found
   if (!elements.labubuBorder && !elements.dubaiBorder && 
       !elements.labubuBorder2 && !elements.labubuBorder3) return;
 
+  // Cache section positions ONCE at init (no recalculation during scroll)
+  const parallaxConfig = [];
+  
+  // Labubu border - hero section
+  if (elements.labubuBorder) {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      const rect = hero.getBoundingClientRect();
+      parallaxConfig.push({
+        element: elements.labubuBorder,
+        startY: rect.top + window.scrollY,
+        endY: rect.top + window.scrollY + rect.height,
+        maxMovement: 20,
+        speed: 0.15
+      });
+    }
+  }
+
+  // Dubai border - text-block section
+  if (elements.dubaiBorder) {
+    const section = document.querySelector('.text-block');
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      parallaxConfig.push({
+        element: elements.dubaiBorder,
+        startY: rect.top + window.scrollY,
+        endY: rect.top + window.scrollY + rect.height,
+        maxMovement: 40,
+        speed: 0.2
+      });
+    }
+  }
+
+  // Labubu border 2 - text-block_2 section
+  if (elements.labubuBorder2) {
+    const section = document.querySelector('.text-block_2');
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      parallaxConfig.push({
+        element: elements.labubuBorder2,
+        startY: rect.top + window.scrollY - window.innerHeight,
+        endY: rect.top + window.scrollY + rect.height,
+        maxMovement: 70,
+        speed: 0.25
+      });
+    }
+  }
+
+  // Labubu border 3 - text-block_2 section
+  if (elements.labubuBorder3) {
+    const section = document.querySelector('.text-block_2');
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      parallaxConfig.push({
+        element: elements.labubuBorder3,
+        startY: rect.top + window.scrollY,
+        endY: rect.top + window.scrollY + rect.height,
+        maxMovement: 40,
+        speed: 0.2
+      });
+    }
+  }
+
+  // LERP function for smooth interpolation
+  function lerp(start, end, factor) {
+    return start + (end - start) * factor;
+  }
+
+  // Current transform values (for LERP)
+  const currentValues = parallaxConfig.map(() => ({ y: 0, targetY: 0 }));
+
   let ticking = false;
-  let cachedScrollY = 0;
-  let cachedViewportHeight = window.innerHeight;
+  let rafId = null;
 
-  function updateAllParallax() {
-    const scrollY = window.scrollY || window.pageYOffset;
-    const viewportHeight = cachedViewportHeight;
-    const viewportBottom = scrollY + viewportHeight;
+  function updateParallax() {
+    const scrollY = window.scrollY;
+    let needsUpdate = false;
 
-    // Labubu border parallax
-    if (elements.labubuBorder && elements.heroSection) {
-      const heroHeight = elements.heroSection.offsetHeight;
-      const heroTop = elements.heroSection.getBoundingClientRect().top + scrollY;
-      const imageTop = heroTop + heroHeight - 50;
+    parallaxConfig.forEach((config, index) => {
+      const { startY, endY, maxMovement, speed } = config;
+      const range = endY - startY;
       
-      if (viewportBottom >= imageTop) {
-        const scrollProgress = Math.min(Math.max((scrollY - heroTop) / heroHeight, 0), 1);
-        elements.labubuBorder.style.transform = `translateY(${scrollProgress * 20}px)`;
+      if (scrollY < startY) {
+        currentValues[index].targetY = 0;
+      } else if (scrollY > endY) {
+        currentValues[index].targetY = maxMovement;
       } else {
-        elements.labubuBorder.style.transform = 'translateY(0px)';
+        const progress = (scrollY - startY) / range;
+        currentValues[index].targetY = progress * maxMovement;
       }
-    }
 
-    // Dubai border parallax
-    if (elements.dubaiBorder && elements.textBlockSection) {
-      const sectionHeight = elements.textBlockSection.offsetHeight;
-      const sectionTop = elements.textBlockSection.getBoundingClientRect().top + scrollY;
-      const imageTop = sectionTop + sectionHeight - 50;
+      // LERP for smooth animation
+      const current = currentValues[index].y;
+      const target = currentValues[index].targetY;
+      const newY = lerp(current, target, speed);
       
-      if (viewportBottom >= imageTop) {
-        const scrollProgress = Math.min(Math.max((scrollY - sectionTop) / sectionHeight, 0), 1);
-        elements.dubaiBorder.style.transform = `translateY(${scrollProgress * 40}px)`;
-      } else {
-        elements.dubaiBorder.style.transform = 'translateY(0px)';
+      if (Math.abs(newY - current) > 0.01) {
+        currentValues[index].y = newY;
+        config.element.style.transform = `translate3d(0, ${newY}px, 0)`;
+        needsUpdate = true;
       }
+    });
+
+    if (needsUpdate) {
+      rafId = requestAnimationFrame(updateParallax);
+    } else {
+      ticking = false;
     }
-
-    // GIFs parallax - REMOVED (no parallax effect on GIFs)
-    // GIFs will remain static without parallax movement
-
-    // Labubu border 2 parallax
-    if (elements.labubuBorder2 && elements.textBlock2Section) {
-      const imageRect = elements.labubuBorder2.getBoundingClientRect();
-      const imageTop = scrollY + imageRect.top;
-      const imageBottom = imageTop + imageRect.height;
-      const sectionRect = elements.textBlock2Section.getBoundingClientRect();
-      const sectionTop = scrollY + sectionRect.top;
-      const sectionHeight = sectionRect.height;
-      const isImageVisible = imageBottom > scrollY && imageTop < viewportBottom;
-      
-      if (isImageVisible) {
-        const startPoint = sectionTop - viewportHeight;
-        const endPoint = sectionTop + sectionHeight;
-        const totalRange = endPoint - startPoint;
-        const currentPosition = scrollY - startPoint;
-        const scrollProgress = Math.min(Math.max(currentPosition / totalRange, 0), 1);
-        elements.labubuBorder2.style.transform = `translateY(${scrollProgress * 70}px)`;
-      } else if (scrollY < imageTop) {
-        elements.labubuBorder2.style.transform = 'translateY(0px)';
-      } else {
-        elements.labubuBorder2.style.transform = 'translateY(70px)';
-      }
-    }
-
-    // Labubu border 3 parallax
-    if (elements.labubuBorder3 && elements.textBlock2Section) {
-      const sectionHeight = elements.textBlock2Section.offsetHeight;
-      const sectionTop = elements.textBlock2Section.getBoundingClientRect().top + scrollY;
-      const imageTop = sectionTop + sectionHeight - 50;
-      
-      if (viewportBottom >= imageTop) {
-        const scrollProgress = Math.min(Math.max((scrollY - sectionTop) / sectionHeight, 0), 1);
-        elements.labubuBorder3.style.transform = `translateY(${scrollProgress * 40}px)`;
-      } else {
-        elements.labubuBorder3.style.transform = 'translateY(0px)';
-      }
-    }
-
-    cachedScrollY = scrollY;
-    ticking = false;
   }
 
   function onScroll() {
     if (!ticking) {
-      window.requestAnimationFrame(updateAllParallax);
       ticking = true;
+      rafId = requestAnimationFrame(updateParallax);
     }
   }
 
-  // Handle resize to update viewport height cache
   function onResize() {
-    cachedViewportHeight = window.innerHeight;
+    // Recalculate positions on resize (debounced)
+    clearTimeout(window.parallaxResizeTimeout);
+    window.parallaxResizeTimeout = setTimeout(() => {
+      parallaxConfig.forEach((config, index) => {
+        const hero = document.querySelector('.hero');
+        const textBlock = document.querySelector('.text-block');
+        const textBlock2 = document.querySelector('.text-block_2');
+        
+        if (config.element === elements.labubuBorder && hero) {
+          const rect = hero.getBoundingClientRect();
+          config.startY = rect.top + window.scrollY;
+          config.endY = rect.top + window.scrollY + rect.height;
+        } else if (config.element === elements.dubaiBorder && textBlock) {
+          const rect = textBlock.getBoundingClientRect();
+          config.startY = rect.top + window.scrollY;
+          config.endY = rect.top + window.scrollY + rect.height;
+        } else if ((config.element === elements.labubuBorder2 || config.element === elements.labubuBorder3) && textBlock2) {
+          const rect = textBlock2.getBoundingClientRect();
+          if (config.element === elements.labubuBorder2) {
+            config.startY = rect.top + window.scrollY - window.innerHeight;
+          } else {
+            config.startY = rect.top + window.scrollY;
+          }
+          config.endY = rect.top + window.scrollY + rect.height;
+        }
+      });
+    }, 150);
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onResize, { passive: true });
-  updateAllParallax(); // Initial call
+  updateParallax(); // Initial call
 }
 

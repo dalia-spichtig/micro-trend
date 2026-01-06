@@ -93,6 +93,8 @@
     z-index: 1;
     opacity: 1;
     mix-blend-mode: overlay;
+    isolation: isolate; /* Create new stacking context for better performance */
+    will-change: contents; /* Only when needed */
   }
   
   
@@ -140,6 +142,8 @@
     filter: blur(15px); /* flou appliqué */
     z-index: -1;       /* derrière le contenu */
     border-radius: 0;  /* ou arrondi si tu veux */
+    will-change: filter; /* Only when animating */
+    isolation: isolate; /* Create stacking context */
   }
 
   .hero h1 {
@@ -181,10 +185,9 @@
     object-fit: cover;
     margin-top: -70px; /* chevauche la section 1 */
     z-index: 10; /* juste au-dessus si nécessaire */
-    will-change: transform; /* Optimize for animations */
-    transform: translateZ(0); /* Force GPU acceleration */
+    transform: translate3d(0, 0, 0); /* Force GPU layer, no will-change needed */
     backface-visibility: hidden; /* Prevent flickering */
-    transition: transform 0.1s ease-out; /* Smooth parallax movement */
+    contain: layout style paint; /* Optimize rendering */
   }
   .dubai-border {
     position: relative; /* reste dans le flux pour ne pas être coupé */
@@ -195,10 +198,9 @@
     object-fit: cover;
     margin-top: -130px; /* chevauche la section 1 */
     z-index: 10; /* juste au-dessus si nécessaire */
-    will-change: transform; /* Optimize for animations */
-    transform: translateZ(0); /* Force GPU acceleration */
+    transform: translate3d(0, 0, 0); /* Force GPU layer */
     backface-visibility: hidden; /* Prevent flickering */
-    transition: transform 0.1s ease-out; /* Smooth parallax movement */
+    contain: layout style paint; /* Optimize rendering */
   }
 
   .labubu-border-2 {
@@ -210,10 +212,9 @@
     object-fit: cover;
     margin-top: -350px; /* chevauche la section 1 */
     z-index: 10; /* juste au-dessus si nécessaire */
-    will-change: transform; /* Optimize for animations */
-    transform: translateZ(0); /* Force GPU acceleration */
+    transform: translate3d(0, 0, 0); /* Force GPU layer */
     backface-visibility: hidden; /* Prevent flickering */
-    transition: transform 0.1s ease-out; /* Smooth parallax movement */
+    contain: layout style paint; /* Optimize rendering */
   }
   .labubu-border-3 {
     position: relative; /* reste dans le flux pour ne pas être coupé */
@@ -225,10 +226,9 @@
     margin-top: -45px; /* chevauche la section 1 */
     margin-bottom: -60px; 
     z-index: 10; /* juste au-dessus si nécessaire */
-    will-change: transform; /* Optimize for animations */
-    transform: translateZ(0) rotate(-10deg); /* Force GPU acceleration */
+    transform: translate3d(0, 0, 0) rotate(-10deg); /* Force GPU layer */
     backface-visibility: hidden; /* Prevent flickering */
-    transition: transform 0.1s ease-out; /* Smooth parallax movement */
+    contain: layout style paint; /* Optimize rendering */
   }
 
   /* --- Section 2 : text-block --- */
@@ -316,6 +316,7 @@
   filter: blur(15px);
   z-index: -2;
   border-radius: 0;
+  isolation: isolate; /* Create stacking context for better performance */
 }
 .moving-text-inner {
   position: relative;
@@ -395,9 +396,9 @@
   display: flex;
   width: max-content;
   animation: scroll-left 20s linear infinite;
-  will-change: transform; /* GPU acceleration */
-  transform: translateZ(0); /* Force GPU acceleration */
+  transform: translate3d(0, 0, 0); /* Force GPU layer, no will-change needed */
   backface-visibility: hidden; /* Prevent flickering */
+  contain: layout style paint; /* Optimize rendering */
 }
 
 /* Chaque span doit être dupliqué pour seamless scroll */
@@ -494,10 +495,9 @@
   max-height: 33vh;
   object-fit: contain;
   display: block;
-  will-change: transform; /* Optimize for animations */
-  transform: translateZ(0); /* Force GPU acceleration */
+  transform: translate3d(0, 0, 0); /* Force GPU layer */
   backface-visibility: hidden; /* Prevent flickering */
-  transition: transform 0.1s ease-out; /* Smooth parallax movement */
+  contain: layout style paint; /* Optimize rendering */
   margin-bottom: -2rem; /* espace en bas pour séparer la section suivante */
 
 }
@@ -560,6 +560,7 @@
     filter: blur(15px); /* flou appliqué */
     z-index: -1;       /* derrière le contenu */
     border-radius: 0;  /* ou arrondi si tu veux */
+    isolation: isolate; /* Create stacking context for better performance */
   }
   
   
@@ -634,6 +635,7 @@
     filter: blur(15px); /* flou appliqué */
     z-index: -1;       /* derrière le contenu */
     border-radius: 0;  /* ou arrondi si tu veux */
+    isolation: isolate; /* Create stacking context for better performance */
   }
   
   
@@ -810,6 +812,7 @@
     filter: blur(15px); /* flou appliqué */
     z-index: -1;       /* derrière le contenu */
     border-radius: 0;  /* ou arrondi si tu veux */
+    isolation: isolate; /* Create stacking context for better performance */
     
   }
   
